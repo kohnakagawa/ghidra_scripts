@@ -1,4 +1,4 @@
-#TODO write a description for this script
+#Calculate cyclomatic complexities for all functions defined in the current program
 #@author 
 #@category CodeAnalysis
 #@keybinding 

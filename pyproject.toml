@@ -1,0 +1,20 @@
+[tool.poetry]
+name = "ghidra_scripts"
+version = "0.1.0"
+description = "This repository contains some Ghidra scripts to automate my reverse-engineering tasks."
+authors = ["Koh M. Nakagawa <tsunekou1019@gmail.com>"]
+license = "MIT License"
+
+[tool.poetry.dependencies]
+python = "^3.8"
+
+[tool.poetry.dev-dependencies]
+black = "^20.8b1"
+isort = "^5.7.0"
+flake8 = "^3.8.4"
+mypy = "^0.812"
+pre-commit = "^2.10.1"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"

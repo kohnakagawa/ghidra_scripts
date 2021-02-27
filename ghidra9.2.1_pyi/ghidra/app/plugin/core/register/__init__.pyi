@@ -1,0 +1,4 @@
+from .RegisterManagerProvider import RegisterManagerProvider as RegisterManagerProvider
+from .RegisterPlugin import RegisterPlugin as RegisterPlugin
+from .RegisterTree import RegisterTree as RegisterTree
+from .SetRegisterValueDialog import SetRegisterValueDialog as SetRegisterValueDialog

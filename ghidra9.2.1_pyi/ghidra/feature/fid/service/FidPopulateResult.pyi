@@ -1,0 +1,183 @@
+from typing import List
+import ghidra.feature.fid.db
+import ghidra.feature.fid.service
+import java.lang
+import java.util
+
+
+class FidPopulateResult(object):
+
+
+
+
+
+    class Count(object, java.lang.Comparable):
+        count: int
+        isVeryCommon: bool
+        name: unicode
+
+
+
+        def __init__(self): ...
+
+
+
+        @overload
+        def compareTo(self, __a0: ghidra.feature.fid.service.FidPopulateResult.Count) -> int: ...
+
+        @overload
+        def compareTo(self, __a0: object) -> int: ...
+
+        def equals(self, __a0: object) -> bool: ...
+
+        def getClass(self) -> java.lang.Class: ...
+
+        def hashCode(self) -> int: ...
+
+        def notify(self) -> None: ...
+
+        def notifyAll(self) -> None: ...
+
+        def toString(self) -> unicode: ...
+
+        @overload
+        def wait(self) -> None: ...
+
+        @overload
+        def wait(self, __a0: long) -> None: ...
+
+        @overload
+        def wait(self, __a0: long, __a1: int) -> None: ...
+
+
+
+
+
+
+    class Disposition(java.lang.Enum):
+        DUPLICATE_INFO: ghidra.feature.fid.service.FidPopulateResult.Disposition = DUPLICATE_INFO
+        FAILED_FUNCTION_FILTER: ghidra.feature.fid.service.FidPopulateResult.Disposition = FAILED_FUNCTION_FILTER
+        FAILS_MINIMUM_SHORTHASH_LENGTH: ghidra.feature.fid.service.FidPopulateResult.Disposition = FAILS_MINIMUM_SHORTHASH_LENGTH
+        INCLUDED: ghidra.feature.fid.service.FidPopulateResult.Disposition = INCLUDED
+        IS_THUNK: ghidra.feature.fid.service.FidPopulateResult.Disposition = IS_THUNK
+        MEMORY_ACCESS_EXCEPTION: ghidra.feature.fid.service.FidPopulateResult.Disposition = MEMORY_ACCESS_EXCEPTION
+        NO_DEFINED_SYMBOL: ghidra.feature.fid.service.FidPopulateResult.Disposition = NO_DEFINED_SYMBOL
+
+
+
+
+
+
+
+        @overload
+        def compareTo(self, __a0: java.lang.Enum) -> int: ...
+
+        @overload
+        def compareTo(self, __a0: object) -> int: ...
+
+        def equals(self, __a0: object) -> bool: ...
+
+        def getClass(self) -> java.lang.Class: ...
+
+        def getDeclaringClass(self) -> java.lang.Class: ...
+
+        def hashCode(self) -> int: ...
+
+        def name(self) -> unicode: ...
+
+        def notify(self) -> None: ...
+
+        def notifyAll(self) -> None: ...
+
+        def ordinal(self) -> int: ...
+
+        def toString(self) -> unicode: ...
+
+        @overload
+        @staticmethod
+        def valueOf(__a0: unicode) -> ghidra.feature.fid.service.FidPopulateResult.Disposition: ...
+
+        @overload
+        @staticmethod
+        def valueOf(__a0: java.lang.Class, __a1: unicode) -> java.lang.Enum: ...
+
+        @staticmethod
+        def values() -> List[ghidra.feature.fid.service.FidPopulateResult.Disposition]: ...
+
+        @overload
+        def wait(self) -> None: ...
+
+        @overload
+        def wait(self, __a0: long) -> None: ...
+
+        @overload
+        def wait(self, __a0: long, __a1: int) -> None: ...
+
+
+
+
+
+
+
+    def addChildReferences(self, __a0: int, __a1: java.util.Map) -> None: ...
+
+    def equals(self, __a0: object) -> bool: ...
+
+    def getClass(self) -> java.lang.Class: ...
+
+    def getFailures(self) -> java.util.Map: ...
+
+    def getLibraryRecord(self) -> ghidra.feature.fid.db.LibraryRecord: ...
+
+    def getMaxChildReferences(self) -> List[object]: ...
+
+    def getResults(self) -> java.util.Map: ...
+
+    def getTotalAdded(self) -> int: ...
+
+    def getTotalAttempted(self) -> int: ...
+
+    def getTotalExcluded(self) -> int: ...
+
+    def getUnresolvedSymbols(self) -> List[object]: ...
+
+    def hashCode(self) -> int: ...
+
+    def notify(self) -> None: ...
+
+    def notifyAll(self) -> None: ...
+
+    def toString(self) -> unicode: ...
+
+    @overload
+    def wait(self) -> None: ...
+
+    @overload
+    def wait(self, __a0: long) -> None: ...
+
+    @overload
+    def wait(self, __a0: long, __a1: int) -> None: ...
+
+    @property
+    def failures(self) -> java.util.Map: ...
+
+    @property
+    def libraryRecord(self) -> ghidra.feature.fid.db.LibraryRecord: ...
+
+    @property
+    def maxChildReferences(self) -> List[object]: ...
+
+    @property
+    def results(self) -> java.util.Map: ...
+
+    @property
+    def totalAdded(self) -> int: ...
+
+    @property
+    def totalAttempted(self) -> int: ...
+
+    @property
+    def totalExcluded(self) -> int: ...
+
+    @property
+    def unresolvedSymbols(self) -> List[object]: ...

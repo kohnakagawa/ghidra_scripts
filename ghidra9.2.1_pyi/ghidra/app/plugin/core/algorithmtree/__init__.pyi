@@ -1,0 +1,1 @@
+from .ModuleAlgorithmPlugin import ModuleAlgorithmPlugin as ModuleAlgorithmPlugin

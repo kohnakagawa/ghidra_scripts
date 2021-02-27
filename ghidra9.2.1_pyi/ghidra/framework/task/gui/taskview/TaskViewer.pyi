@@ -1,0 +1,46 @@
+import java.lang
+import javax.swing
+
+
+class TaskViewer(object):
+
+
+
+
+    def __init__(self, taskManager: ghidra.framework.task.GTaskManager): ...
+
+
+
+    def equals(self, __a0: object) -> bool: ...
+
+    def getClass(self) -> java.lang.Class: ...
+
+    def getComponent(self) -> javax.swing.JComponent: ...
+
+    def hashCode(self) -> int: ...
+
+    def notify(self) -> None: ...
+
+    def notifyAll(self) -> None: ...
+
+    def setUseAnimations(self, b: bool) -> None: ...
+
+    def toString(self) -> unicode: ...
+
+    @overload
+    def wait(self) -> None: ...
+
+    @overload
+    def wait(self, __a0: long) -> None: ...
+
+    @overload
+    def wait(self, __a0: long, __a1: int) -> None: ...
+
+    @property
+    def component(self) -> javax.swing.JComponent: ...
+
+    @property
+    def useAnimations(self) -> None: ...  # No getter available.
+
+    @useAnimations.setter
+    def useAnimations(self, value: bool) -> None: ...

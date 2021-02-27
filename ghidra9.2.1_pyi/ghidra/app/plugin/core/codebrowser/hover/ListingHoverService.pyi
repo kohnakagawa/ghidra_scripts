@@ -1,0 +1,53 @@
+import docking.widgets.fieldpanel.field
+import docking.widgets.fieldpanel.support
+import ghidra.app.services
+import ghidra.program.model.listing
+import ghidra.program.util
+import java.lang
+import javax.swing
+
+
+class ListingHoverService(ghidra.app.services.HoverService, object):
+
+
+
+
+
+
+
+
+    def componentHidden(self) -> None: ...
+
+    def componentShown(self) -> None: ...
+
+    def equals(self, __a0: object) -> bool: ...
+
+    def getClass(self) -> java.lang.Class: ...
+
+    def getHoverComponent(self, __a0: ghidra.program.model.listing.Program, __a1: ghidra.program.util.ProgramLocation, __a2: docking.widgets.fieldpanel.support.FieldLocation, __a3: docking.widgets.fieldpanel.field.Field) -> javax.swing.JComponent: ...
+
+    def getPriority(self) -> int: ...
+
+    def hashCode(self) -> int: ...
+
+    def hoverModeSelected(self) -> bool: ...
+
+    def notify(self) -> None: ...
+
+    def notifyAll(self) -> None: ...
+
+    def scroll(self, __a0: int) -> None: ...
+
+    def toString(self) -> unicode: ...
+
+    @overload
+    def wait(self) -> None: ...
+
+    @overload
+    def wait(self, __a0: long) -> None: ...
+
+    @overload
+    def wait(self, __a0: long, __a1: int) -> None: ...
+
+    @property
+    def priority(self) -> int: ...

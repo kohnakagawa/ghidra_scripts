@@ -1,0 +1,109 @@
+from typing import List
+import ghidra.app.plugin.match
+import ghidra.program.model.address
+import ghidra.program.model.listing
+import ghidra.util.task
+import java.lang
+
+
+class MatchFunctions(object):
+
+
+
+
+
+    class MatchedFunctions(object):
+
+
+
+
+
+
+
+
+        def equals(self, __a0: object) -> bool: ...
+
+        def getAFunctionAddress(self) -> ghidra.program.model.address.Address: ...
+
+        def getAMatchNum(self) -> int: ...
+
+        def getAProgram(self) -> ghidra.program.model.listing.Program: ...
+
+        def getBFunctionAddress(self) -> ghidra.program.model.address.Address: ...
+
+        def getBMatchNum(self) -> int: ...
+
+        def getBProgram(self) -> ghidra.program.model.listing.Program: ...
+
+        def getClass(self) -> java.lang.Class: ...
+
+        def hashCode(self) -> int: ...
+
+        def notify(self) -> None: ...
+
+        def notifyAll(self) -> None: ...
+
+        def toString(self) -> unicode: ...
+
+        @overload
+        def wait(self) -> None: ...
+
+        @overload
+        def wait(self, __a0: long) -> None: ...
+
+        @overload
+        def wait(self, __a0: long, __a1: int) -> None: ...
+
+        @property
+        def AFunctionAddress(self) -> ghidra.program.model.address.Address: ...
+
+        @property
+        def AMatchNum(self) -> int: ...
+
+        @property
+        def AProgram(self) -> ghidra.program.model.listing.Program: ...
+
+        @property
+        def BFunctionAddress(self) -> ghidra.program.model.address.Address: ...
+
+        @property
+        def BMatchNum(self) -> int: ...
+
+        @property
+        def BProgram(self) -> ghidra.program.model.listing.Program: ...
+
+
+
+
+
+    def equals(self, __a0: object) -> bool: ...
+
+    def getClass(self) -> java.lang.Class: ...
+
+    def hashCode(self) -> int: ...
+
+    @staticmethod
+    def matchFunctions(__a0: ghidra.program.model.listing.Program, __a1: ghidra.program.model.address.AddressSetView, __a2: ghidra.program.model.listing.Program, __a3: ghidra.program.model.address.AddressSetView, __a4: int, __a5: bool, __a6: bool, __a7: ghidra.app.plugin.match.FunctionHasher, __a8: ghidra.util.task.TaskMonitor) -> List[object]: ...
+
+    @overload
+    @staticmethod
+    def matchOneFunction(__a0: ghidra.program.model.listing.Program, __a1: ghidra.program.model.address.Address, __a2: ghidra.program.model.listing.Program, __a3: ghidra.app.plugin.match.FunctionHasher, __a4: ghidra.util.task.TaskMonitor) -> List[object]: ...
+
+    @overload
+    @staticmethod
+    def matchOneFunction(__a0: ghidra.program.model.listing.Program, __a1: ghidra.program.model.address.Address, __a2: ghidra.program.model.listing.Program, __a3: ghidra.program.model.address.AddressSetView, __a4: ghidra.app.plugin.match.FunctionHasher, __a5: ghidra.util.task.TaskMonitor) -> List[object]: ...
+
+    def notify(self) -> None: ...
+
+    def notifyAll(self) -> None: ...
+
+    def toString(self) -> unicode: ...
+
+    @overload
+    def wait(self) -> None: ...
+
+    @overload
+    def wait(self, __a0: long) -> None: ...
+
+    @overload
+    def wait(self, __a0: long, __a1: int) -> None: ...

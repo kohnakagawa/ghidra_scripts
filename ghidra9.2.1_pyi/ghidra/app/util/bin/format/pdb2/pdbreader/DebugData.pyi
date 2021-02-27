@@ -1,0 +1,129 @@
+from typing import List
+import ghidra.app.util.bin.format.pdb2.pdbreader
+import ghidra.util.task
+import java.lang
+import java.util
+
+
+class DebugData(object):
+
+
+
+
+
+    class DebugType(java.lang.Enum):
+        EXCEPTION: ghidra.app.util.bin.format.pdb2.pdbreader.DebugData.DebugType = EXCEPTION
+        FIXUP: ghidra.app.util.bin.format.pdb2.pdbreader.DebugData.DebugType = FIXUP
+        FRAME_POINTER_OMISSION: ghidra.app.util.bin.format.pdb2.pdbreader.DebugData.DebugType = FRAME_POINTER_OMISSION
+        NEW_FRAME_POINTER_OMISSION: ghidra.app.util.bin.format.pdb2.pdbreader.DebugData.DebugType = NEW_FRAME_POINTER_OMISSION
+        OMAP_FROM_SOURCE: ghidra.app.util.bin.format.pdb2.pdbreader.DebugData.DebugType = OMAP_FROM_SOURCE
+        OMAP_TO_SOURCE: ghidra.app.util.bin.format.pdb2.pdbreader.DebugData.DebugType = OMAP_TO_SOURCE
+        P_DATA: ghidra.app.util.bin.format.pdb2.pdbreader.DebugData.DebugType = P_DATA
+        SECTION_HEADER: ghidra.app.util.bin.format.pdb2.pdbreader.DebugData.DebugType = SECTION_HEADER
+        SECTION_HEADER_ORIG: ghidra.app.util.bin.format.pdb2.pdbreader.DebugData.DebugType = SECTION_HEADER_ORIG
+        TOKEN_RID_MAP: ghidra.app.util.bin.format.pdb2.pdbreader.DebugData.DebugType = TOKEN_RID_MAP
+        X_DATA: ghidra.app.util.bin.format.pdb2.pdbreader.DebugData.DebugType = X_DATA
+
+
+
+
+
+
+
+        @overload
+        def compareTo(self, __a0: java.lang.Enum) -> int: ...
+
+        @overload
+        def compareTo(self, __a0: object) -> int: ...
+
+        def equals(self, __a0: object) -> bool: ...
+
+        def getClass(self) -> java.lang.Class: ...
+
+        def getDeclaringClass(self) -> java.lang.Class: ...
+
+        def getValue(self) -> int: ...
+
+        def hashCode(self) -> int: ...
+
+        def name(self) -> unicode: ...
+
+        def notify(self) -> None: ...
+
+        def notifyAll(self) -> None: ...
+
+        def ordinal(self) -> int: ...
+
+        def toString(self) -> unicode: ...
+
+        @overload
+        @staticmethod
+        def valueOf(__a0: unicode) -> ghidra.app.util.bin.format.pdb2.pdbreader.DebugData.DebugType: ...
+
+        @overload
+        @staticmethod
+        def valueOf(__a0: java.lang.Class, __a1: unicode) -> java.lang.Enum: ...
+
+        @staticmethod
+        def values() -> List[ghidra.app.util.bin.format.pdb2.pdbreader.DebugData.DebugType]: ...
+
+        @overload
+        def wait(self) -> None: ...
+
+        @overload
+        def wait(self, __a0: long) -> None: ...
+
+        @overload
+        def wait(self, __a0: long, __a1: int) -> None: ...
+
+        @property
+        def value(self) -> int: ...
+
+    def __init__(self, __a0: ghidra.app.util.bin.format.pdb2.pdbreader.AbstractPdb): ...
+
+
+
+    def deserialize(self, __a0: ghidra.util.task.TaskMonitor) -> None: ...
+
+    def deserializeHeader(self, __a0: ghidra.app.util.bin.format.pdb2.pdbreader.PdbByteReader, __a1: ghidra.util.task.TaskMonitor) -> None: ...
+
+    def equals(self, __a0: object) -> bool: ...
+
+    def getClass(self) -> java.lang.Class: ...
+
+    def getFramePointerOmissionData(self) -> List[object]: ...
+
+    def getImageSectionHeaders(self) -> List[object]: ...
+
+    def getImageSectionHeadersOrig(self) -> List[object]: ...
+
+    def getOmapFromSource(self) -> java.util.SortedMap: ...
+
+    def hashCode(self) -> int: ...
+
+    def notify(self) -> None: ...
+
+    def notifyAll(self) -> None: ...
+
+    def toString(self) -> unicode: ...
+
+    @overload
+    def wait(self) -> None: ...
+
+    @overload
+    def wait(self, __a0: long) -> None: ...
+
+    @overload
+    def wait(self, __a0: long, __a1: int) -> None: ...
+
+    @property
+    def framePointerOmissionData(self) -> List[object]: ...
+
+    @property
+    def imageSectionHeaders(self) -> List[object]: ...
+
+    @property
+    def imageSectionHeadersOrig(self) -> List[object]: ...
+
+    @property
+    def omapFromSource(self) -> java.util.SortedMap: ...

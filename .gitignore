@@ -1,5 +1,4 @@
 *.class
-ModifyDecompileResultFromApiHash.java
-ModifyDecompileResultFromFunctionName.java
-ShowFunctionCallTrees.java
-hash_db.json
+.idea
+.venv/
+venv

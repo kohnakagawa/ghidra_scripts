@@ -1,0 +1,2 @@
+from .ValidateProgramDialog import ValidateProgramDialog as ValidateProgramDialog
+from .ValidateProgramPlugin import ValidateProgramPlugin as ValidateProgramPlugin

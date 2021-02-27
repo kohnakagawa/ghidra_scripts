@@ -1,0 +1,5 @@
+from .NameConflictsPanel import NameConflictsPanel as NameConflictsPanel
+from .NamePanel import NamePanel as NamePanel
+from .ProgramTreeMergeManager import ProgramTreeMergeManager as ProgramTreeMergeManager
+from .ProgramTreeMergePanel import ProgramTreeMergePanel as ProgramTreeMergePanel
+from .TreeChangePanel import TreeChangePanel as TreeChangePanel

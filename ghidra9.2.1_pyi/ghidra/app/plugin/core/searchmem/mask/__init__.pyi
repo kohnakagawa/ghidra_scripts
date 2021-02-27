@@ -1,0 +1,1 @@
+from .MnemonicSearchPlugin import MnemonicSearchPlugin as MnemonicSearchPlugin

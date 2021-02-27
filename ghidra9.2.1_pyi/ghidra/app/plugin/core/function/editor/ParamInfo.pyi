@@ -1,0 +1,49 @@
+import ghidra.program.model.data
+import ghidra.program.model.listing
+import java.lang
+
+
+class ParamInfo(object):
+
+
+
+
+
+
+
+
+    def equals(self, __a0: object) -> bool: ...
+
+    def getClass(self) -> java.lang.Class: ...
+
+    def getFormalDataType(self) -> ghidra.program.model.data.DataType: ...
+
+    def getName(self) -> unicode: ...
+
+    def getStorage(self) -> ghidra.program.model.listing.VariableStorage: ...
+
+    def hashCode(self) -> int: ...
+
+    def notify(self) -> None: ...
+
+    def notifyAll(self) -> None: ...
+
+    def toString(self) -> unicode: ...
+
+    @overload
+    def wait(self) -> None: ...
+
+    @overload
+    def wait(self, __a0: long) -> None: ...
+
+    @overload
+    def wait(self, __a0: long, __a1: int) -> None: ...
+
+    @property
+    def formalDataType(self) -> ghidra.program.model.data.DataType: ...
+
+    @property
+    def name(self) -> unicode: ...
+
+    @property
+    def storage(self) -> ghidra.program.model.listing.VariableStorage: ...

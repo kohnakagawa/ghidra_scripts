@@ -1,0 +1,99 @@
+from typing import List
+import ghidra.app.util.bin.format.macho.dyld
+import ghidra.program.model.data
+import java.lang
+
+
+class DyldCacheSlideInfo2(ghidra.app.util.bin.format.macho.dyld.DyldCacheSlideInfoCommon):
+    """
+    Represents a dyld_cache_slide_info2 structure.
+    """
+
+
+
+
+
+    def __init__(self, reader: ghidra.app.util.bin.BinaryReader):
+        """
+        Create a new {@link DyldCacheSlideInfo2}.
+        @param reader A {@link BinaryReader} positioned at the start of a DYLD slide info 2
+        @throws IOException if there was an IO-related problem creating the DYLD slide info 2
+        """
+        ...
+
+
+
+    def equals(self, __a0: object) -> bool: ...
+
+    def getClass(self) -> java.lang.Class: ...
+
+    def getDeltaMask(self) -> long: ...
+
+    def getPageExtrasCount(self) -> long: ...
+
+    def getPageExtrasEntries(self) -> List[int]: ...
+
+    def getPageExtrasOffset(self) -> long: ...
+
+    def getPageSize(self) -> long: ...
+
+    def getPageStartsCount(self) -> long: ...
+
+    def getPageStartsEntries(self) -> List[int]: ...
+
+    def getPageStartsOffset(self) -> long: ...
+
+    def getValueAdd(self) -> long: ...
+
+    def getVersion(self) -> int:
+        """
+        Gets the version of the DYLD slide info.
+        @return The version of the DYLD slide info.
+        """
+        ...
+
+    def hashCode(self) -> int: ...
+
+    def notify(self) -> None: ...
+
+    def notifyAll(self) -> None: ...
+
+    def toDataType(self) -> ghidra.program.model.data.DataType: ...
+
+    def toString(self) -> unicode: ...
+
+    @overload
+    def wait(self) -> None: ...
+
+    @overload
+    def wait(self, __a0: long) -> None: ...
+
+    @overload
+    def wait(self, __a0: long, __a1: int) -> None: ...
+
+    @property
+    def deltaMask(self) -> long: ...
+
+    @property
+    def pageExtrasCount(self) -> long: ...
+
+    @property
+    def pageExtrasEntries(self) -> List[int]: ...
+
+    @property
+    def pageExtrasOffset(self) -> long: ...
+
+    @property
+    def pageSize(self) -> long: ...
+
+    @property
+    def pageStartsCount(self) -> long: ...
+
+    @property
+    def pageStartsEntries(self) -> List[int]: ...
+
+    @property
+    def pageStartsOffset(self) -> long: ...
+
+    @property
+    def valueAdd(self) -> long: ...

@@ -1,0 +1,3 @@
+from .ClassFileFlags import ClassFileFlags as ClassFileFlags
+from .FieldInfoAccessFlags import FieldInfoAccessFlags as FieldInfoAccessFlags
+from .MethodsInfoAccessFlags import MethodsInfoAccessFlags as MethodsInfoAccessFlags

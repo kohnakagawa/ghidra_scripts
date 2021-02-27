@@ -1,0 +1,59 @@
+import ghidra.util
+import java.lang
+
+
+class WordLocation(object):
+    """
+    A simple object that represents a word as defined by
+     StringUtilities#findWord(String, int).  This class contains the position of the word
+     within the original context from whence it came.
+    """
+
+
+
+
+
+    def __init__(self, context: unicode, word: unicode, start: int): ...
+
+
+
+    @staticmethod
+    def empty(context: unicode) -> ghidra.util.WordLocation: ...
+
+    def equals(self, __a0: object) -> bool: ...
+
+    def getClass(self) -> java.lang.Class: ...
+
+    def getContext(self) -> unicode: ...
+
+    def getStart(self) -> int: ...
+
+    def getWord(self) -> unicode: ...
+
+    def hashCode(self) -> int: ...
+
+    def isEmpty(self) -> bool: ...
+
+    def notify(self) -> None: ...
+
+    def notifyAll(self) -> None: ...
+
+    def toString(self) -> unicode: ...
+
+    @overload
+    def wait(self) -> None: ...
+
+    @overload
+    def wait(self, __a0: long) -> None: ...
+
+    @overload
+    def wait(self, __a0: long, __a1: int) -> None: ...
+
+    @property
+    def context(self) -> unicode: ...
+
+    @property
+    def start(self) -> int: ...
+
+    @property
+    def word(self) -> unicode: ...

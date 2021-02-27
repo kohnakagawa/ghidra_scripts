@@ -1,0 +1,6 @@
+from .CoffArchiveConstants import CoffArchiveConstants as CoffArchiveConstants
+from .CoffArchiveHeader import CoffArchiveHeader as CoffArchiveHeader
+from .CoffArchiveMemberHeader import CoffArchiveMemberHeader as CoffArchiveMemberHeader
+from .FirstLinkerMember import FirstLinkerMember as FirstLinkerMember
+from .LongNamesMember import LongNamesMember as LongNamesMember
+from .SecondLinkerMember import SecondLinkerMember as SecondLinkerMember

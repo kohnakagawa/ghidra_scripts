@@ -1,0 +1,39 @@
+import java.lang
+
+
+class CryptoKey(object):
+    NOT_ENCRYPTED_KEY: ghidra.file.crypto.CryptoKey = ghidra.file.crypto.CryptoKey@27d088c
+    iv: List[int]
+    key: List[int]
+
+
+
+    def __init__(self, __a0: List[int], __a1: List[int]): ...
+
+
+
+    def equals(self, __a0: object) -> bool: ...
+
+    def getClass(self) -> java.lang.Class: ...
+
+    def hashCode(self) -> int: ...
+
+    def isEmpty(self) -> bool: ...
+
+    def notify(self) -> None: ...
+
+    def notifyAll(self) -> None: ...
+
+    def toString(self) -> unicode: ...
+
+    @overload
+    def wait(self) -> None: ...
+
+    @overload
+    def wait(self, __a0: long) -> None: ...
+
+    @overload
+    def wait(self, __a0: long, __a1: int) -> None: ...
+
+    @property
+    def empty(self) -> bool: ...

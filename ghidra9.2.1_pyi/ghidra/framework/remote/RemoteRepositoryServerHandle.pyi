@@ -1,0 +1,89 @@
+from typing import List
+import ghidra.framework.remote
+import java.lang
+import java.rmi
+
+
+class RemoteRepositoryServerHandle(ghidra.framework.remote.RepositoryServerHandle, java.rmi.Remote, object):
+    """
+    RepositoryServerHandle provides access to a remote repository server via RMI.
+
+     Methods from RepositoryServerHandle must be re-declared here
+     so they may be properly marshalled for remote invocation via RMI.
+     This became neccessary with an OpenJDK 11.0.6 change made to
+     RemoteObjectInvocationHandler.
+    """
+
+
+
+
+
+
+
+
+
+    def anonymousAccessAllowed(self) -> bool: ...
+
+    def canSetPassword(self) -> bool: ...
+
+    def connected(self) -> None: ...
+
+    def createRepository(self, name: unicode) -> ghidra.framework.remote.RepositoryHandle: ...
+
+    def deleteRepository(self, name: unicode) -> None: ...
+
+    def equals(self, __a0: object) -> bool: ...
+
+    def getAllUsers(self) -> List[unicode]: ...
+
+    def getClass(self) -> java.lang.Class: ...
+
+    def getPasswordExpiration(self) -> long: ...
+
+    def getRepository(self, name: unicode) -> ghidra.framework.remote.RepositoryHandle: ...
+
+    def getRepositoryNames(self) -> List[unicode]: ...
+
+    def getUser(self) -> unicode: ...
+
+    def hashCode(self) -> int: ...
+
+    def isReadOnly(self) -> bool: ...
+
+    def notify(self) -> None: ...
+
+    def notifyAll(self) -> None: ...
+
+    def setPassword(self, saltedSHA256PasswordHash: List[int]) -> bool: ...
+
+    def toString(self) -> unicode: ...
+
+    @overload
+    def wait(self) -> None: ...
+
+    @overload
+    def wait(self, __a0: long) -> None: ...
+
+    @overload
+    def wait(self, __a0: long, __a1: int) -> None: ...
+
+    @property
+    def allUsers(self) -> List[unicode]: ...
+
+    @property
+    def password(self) -> None: ...  # No getter available.
+
+    @password.setter
+    def password(self, value: List[int]) -> None: ...
+
+    @property
+    def passwordExpiration(self) -> long: ...
+
+    @property
+    def readOnly(self) -> bool: ...
+
+    @property
+    def repositoryNames(self) -> List[unicode]: ...
+
+    @property
+    def user(self) -> unicode: ...

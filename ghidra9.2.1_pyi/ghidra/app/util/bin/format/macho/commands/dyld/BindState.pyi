@@ -1,0 +1,46 @@
+import ghidra.app.util.bin.format.macho.commands.dyld
+import ghidra.util.task
+import java.lang
+
+
+class BindState(ghidra.app.util.bin.format.macho.commands.dyld.AbstractDyldInfoState):
+
+
+
+
+    def __init__(self, header: ghidra.app.util.bin.format.macho.MachHeader, program: ghidra.program.model.listing.Program): ...
+
+
+
+    def equals(self, __a0: object) -> bool: ...
+
+    def getClass(self) -> java.lang.Class: ...
+
+    def hashCode(self) -> int: ...
+
+    def notify(self) -> None: ...
+
+    def notifyAll(self) -> None: ...
+
+    def perform(self, monitor: ghidra.util.task.TaskMonitor) -> None: ...
+
+    def print(self) -> unicode: ...
+
+    def setWeak(self, weak: bool) -> None: ...
+
+    def toString(self) -> unicode: ...
+
+    @overload
+    def wait(self) -> None: ...
+
+    @overload
+    def wait(self, __a0: long) -> None: ...
+
+    @overload
+    def wait(self, __a0: long, __a1: int) -> None: ...
+
+    @property
+    def weak(self) -> None: ...  # No getter available.
+
+    @weak.setter
+    def weak(self, value: bool) -> None: ...

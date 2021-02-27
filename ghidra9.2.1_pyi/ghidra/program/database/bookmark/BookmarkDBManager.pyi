@@ -1,0 +1,143 @@
+from typing import Iterator
+from typing import List
+import db.util
+import ghidra.program.database
+import ghidra.program.model.address
+import ghidra.program.model.listing
+import ghidra.util.task
+import java.awt
+import java.io
+import java.lang
+import javax.swing
+
+
+class BookmarkDBManager(object, ghidra.program.model.listing.BookmarkManager, db.util.ErrorHandler, ghidra.program.database.ManagerDB):
+    OLD_BOOKMARK_PROPERTY_OBJECT_CLASS1: unicode = u'ghidra.app.plugin.bookmark.BookmarkInfo'
+    OLD_BOOKMARK_PROPERTY_OBJECT_CLASS2: unicode = u'ghidra.program.util.Bookmark'
+
+
+
+    def __init__(self, handle: db.DBHandle, addrMap: ghidra.program.database.map.AddressMap, openMode: int, lock: ghidra.util.Lock, monitor: ghidra.util.task.TaskMonitor):
+        """
+        Constructs a new CodeManager for a program.
+        @param handle handle to database
+        @param addrMap addressMap to convert between addresses and long values.
+        @param openMode either READ_ONLY, UPDATE, or UPGRADE
+        @param lock the program synchronization lock
+        @param monitor the task monitor use while upgrading.
+        @throws VersionException if the database is incompatible with the current
+         schema
+        @throws IOException if there is a problem accessing the database.
+        """
+        ...
+
+
+
+    def dbError(self, e: java.io.IOException) -> None: ...
+
+    def defineType(self, type: unicode, icon: javax.swing.ImageIcon, color: java.awt.Color, priority: int) -> ghidra.program.model.listing.BookmarkType: ...
+
+    def deleteAddressRange(self, startAddr: ghidra.program.model.address.Address, endAddr: ghidra.program.model.address.Address, monitor: ghidra.util.task.TaskMonitor) -> None: ...
+
+    def equals(self, __a0: object) -> bool: ...
+
+    @overload
+    def getBookmark(self, id: long) -> ghidra.program.model.listing.Bookmark: ...
+
+    @overload
+    def getBookmark(self, addr: ghidra.program.model.address.Address, type: unicode, category: unicode) -> ghidra.program.model.listing.Bookmark: ...
+
+    def getBookmarkAddresses(self, type: unicode) -> ghidra.program.model.address.AddressSetView: ...
+
+    @overload
+    def getBookmarkCount(self) -> int: ...
+
+    @overload
+    def getBookmarkCount(self, type: unicode) -> int: ...
+
+    def getBookmarkType(self, type: unicode) -> ghidra.program.model.listing.BookmarkType: ...
+
+    def getBookmarkTypes(self) -> List[ghidra.program.model.listing.BookmarkType]: ...
+
+    @overload
+    def getBookmarks(self, addr: ghidra.program.model.address.Address) -> List[ghidra.program.model.listing.Bookmark]: ...
+
+    @overload
+    def getBookmarks(self, address: ghidra.program.model.address.Address, type: unicode) -> List[ghidra.program.model.listing.Bookmark]: ...
+
+    @overload
+    def getBookmarksIterator(self) -> Iterator[ghidra.program.model.listing.Bookmark]: ...
+
+    @overload
+    def getBookmarksIterator(self, type: unicode) -> Iterator[ghidra.program.model.listing.Bookmark]: ...
+
+    @overload
+    def getBookmarksIterator(self, startAddress: ghidra.program.model.address.Address, forward: bool) -> Iterator[ghidra.program.model.listing.Bookmark]: ...
+
+    def getCategories(self, type: unicode) -> List[unicode]: ...
+
+    def getClass(self) -> java.lang.Class: ...
+
+    def getProgram(self) -> ghidra.program.model.listing.Program: ...
+
+    def hasBookmarks(self, type: unicode) -> bool: ...
+
+    def hashCode(self) -> int: ...
+
+    def invalidateCache(self, all: bool) -> None:
+        """
+        Invalidate cached objects held by this manager.
+        """
+        ...
+
+    def moveAddressRange(self, fromAddr: ghidra.program.model.address.Address, toAddr: ghidra.program.model.address.Address, length: long, monitor: ghidra.util.task.TaskMonitor) -> None: ...
+
+    def notify(self) -> None: ...
+
+    def notifyAll(self) -> None: ...
+
+    def programReady(self, openMode: int, currentRevision: int, monitor: ghidra.util.task.TaskMonitor) -> None: ...
+
+    def removeBookmark(self, bookmark: ghidra.program.model.listing.Bookmark) -> None: ...
+
+    @overload
+    def removeBookmarks(self, type: unicode) -> None: ...
+
+    @overload
+    def removeBookmarks(self, set: ghidra.program.model.address.AddressSetView, monitor: ghidra.util.task.TaskMonitor) -> None: ...
+
+    @overload
+    def removeBookmarks(self, type: unicode, category: unicode, monitor: ghidra.util.task.TaskMonitor) -> None: ...
+
+    @overload
+    def removeBookmarks(self, set: ghidra.program.model.address.AddressSetView, type: unicode, monitor: ghidra.util.task.TaskMonitor) -> None: ...
+
+    @overload
+    def removeBookmarks(self, set: ghidra.program.model.address.AddressSetView, type: unicode, category: unicode, monitor: ghidra.util.task.TaskMonitor) -> None: ...
+
+    def setBookmark(self, addr: ghidra.program.model.address.Address, type: unicode, category: unicode, comment: unicode) -> ghidra.program.model.listing.Bookmark: ...
+
+    def setProgram(self, program: ghidra.program.database.ProgramDB) -> None: ...
+
+    def toString(self) -> unicode: ...
+
+    @overload
+    def wait(self) -> None: ...
+
+    @overload
+    def wait(self, __a0: long) -> None: ...
+
+    @overload
+    def wait(self, __a0: long, __a1: int) -> None: ...
+
+    @property
+    def bookmarkCount(self) -> int: ...
+
+    @property
+    def bookmarkTypes(self) -> List[ghidra.program.model.listing.BookmarkType]: ...
+
+    @property
+    def bookmarksIterator(self) -> java.util.Iterator: ...
+
+    @property
+    def program(self) -> ghidra.program.model.listing.Program: ...

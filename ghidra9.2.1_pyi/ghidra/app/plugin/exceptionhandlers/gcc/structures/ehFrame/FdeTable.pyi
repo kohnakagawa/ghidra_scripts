@@ -1,0 +1,36 @@
+import ghidra.app.plugin.exceptionhandlers.gcc
+import ghidra.program.model.address
+import java.lang
+
+
+class FdeTable(object):
+
+
+
+
+    def __init__(self, __a0: ghidra.util.task.TaskMonitor, __a1: ghidra.program.model.listing.Program): ...
+
+
+
+    def create(self, __a0: ghidra.program.model.address.Address, __a1: ghidra.app.plugin.exceptionhandlers.gcc.DwarfEHDecoder, __a2: long) -> None: ...
+
+    def equals(self, __a0: object) -> bool: ...
+
+    def getClass(self) -> java.lang.Class: ...
+
+    def hashCode(self) -> int: ...
+
+    def notify(self) -> None: ...
+
+    def notifyAll(self) -> None: ...
+
+    def toString(self) -> unicode: ...
+
+    @overload
+    def wait(self) -> None: ...
+
+    @overload
+    def wait(self, __a0: long) -> None: ...
+
+    @overload
+    def wait(self, __a0: long, __a1: int) -> None: ...

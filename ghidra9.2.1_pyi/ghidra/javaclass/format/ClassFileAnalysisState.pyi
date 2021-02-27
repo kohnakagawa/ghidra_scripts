@@ -1,0 +1,46 @@
+import ghidra.app.plugin.core.analysis
+import ghidra.javaclass.format
+import ghidra.program.model.address
+import ghidra.program.model.listing
+import java.lang
+
+
+class ClassFileAnalysisState(object, ghidra.app.plugin.core.analysis.AnalysisState):
+
+
+
+
+    def __init__(self, __a0: ghidra.program.model.listing.Program): ...
+
+
+
+    def equals(self, __a0: object) -> bool: ...
+
+    def getClass(self) -> java.lang.Class: ...
+
+    def getClassFile(self) -> ghidra.javaclass.format.ClassFileJava: ...
+
+    def getMethodInfo(self, __a0: ghidra.program.model.address.Address) -> ghidra.javaclass.format.MethodInfoJava: ...
+
+    @staticmethod
+    def getState(__a0: ghidra.program.model.listing.Program) -> ghidra.javaclass.format.ClassFileAnalysisState: ...
+
+    def hashCode(self) -> int: ...
+
+    def notify(self) -> None: ...
+
+    def notifyAll(self) -> None: ...
+
+    def toString(self) -> unicode: ...
+
+    @overload
+    def wait(self) -> None: ...
+
+    @overload
+    def wait(self, __a0: long) -> None: ...
+
+    @overload
+    def wait(self, __a0: long, __a1: int) -> None: ...
+
+    @property
+    def classFile(self) -> ghidra.javaclass.format.ClassFileJava: ...

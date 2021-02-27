@@ -1,0 +1,4 @@
+from .CountLeadingOnesOpBehavior import CountLeadingOnesOpBehavior as CountLeadingOnesOpBehavior
+from .CountLeadingZerosOpBehavior import CountLeadingZerosOpBehavior as CountLeadingZerosOpBehavior
+from .OpBehaviorOther import OpBehaviorOther as OpBehaviorOther
+from .OpBehaviorOtherNOP import OpBehaviorOtherNOP as OpBehaviorOtherNOP

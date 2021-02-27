@@ -1,0 +1,49 @@
+from typing import List
+import ghidra.program.model.address
+import java.lang
+
+
+class RefRepeatComment(object):
+
+
+
+
+
+
+
+
+    def equals(self, obj: object) -> bool: ...
+
+    def getAddress(self) -> ghidra.program.model.address.Address: ...
+
+    def getClass(self) -> java.lang.Class: ...
+
+    def getCommentLineCount(self) -> int: ...
+
+    def getCommentLines(self) -> List[unicode]: ...
+
+    def hashCode(self) -> int: ...
+
+    def notify(self) -> None: ...
+
+    def notifyAll(self) -> None: ...
+
+    def toString(self) -> unicode: ...
+
+    @overload
+    def wait(self) -> None: ...
+
+    @overload
+    def wait(self, __a0: long) -> None: ...
+
+    @overload
+    def wait(self, __a0: long, __a1: int) -> None: ...
+
+    @property
+    def address(self) -> ghidra.program.model.address.Address: ...
+
+    @property
+    def commentLineCount(self) -> int: ...
+
+    @property
+    def commentLines(self) -> List[unicode]: ...

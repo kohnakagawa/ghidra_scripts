@@ -1,0 +1,2 @@
+from .VgSatelliteFeaturette import VgSatelliteFeaturette as VgSatelliteFeaturette
+from .VisualGraphFeaturette import VisualGraphFeaturette as VisualGraphFeaturette

@@ -1,0 +1,69 @@
+from typing import List
+import ghidra.program.model.symbol
+import java.lang
+
+
+class SourceType(java.lang.Enum):
+    ANALYSIS: ghidra.program.model.symbol.SourceType = ANALYSIS
+    DEFAULT: ghidra.program.model.symbol.SourceType = DEFAULT
+    IMPORTED: ghidra.program.model.symbol.SourceType = IMPORTED
+    USER_DEFINED: ghidra.program.model.symbol.SourceType = USER_DEFINED
+
+
+
+
+
+
+
+    @overload
+    def compareTo(self, __a0: java.lang.Enum) -> int: ...
+
+    @overload
+    def compareTo(self, __a0: object) -> int: ...
+
+    def equals(self, __a0: object) -> bool: ...
+
+    def getClass(self) -> java.lang.Class: ...
+
+    def getDeclaringClass(self) -> java.lang.Class: ...
+
+    def getDisplayString(self) -> unicode: ...
+
+    def hashCode(self) -> int: ...
+
+    def isHigherPriorityThan(self, __a0: ghidra.program.model.symbol.SourceType) -> bool: ...
+
+    def isLowerPriorityThan(self, __a0: ghidra.program.model.symbol.SourceType) -> bool: ...
+
+    def name(self) -> unicode: ...
+
+    def notify(self) -> None: ...
+
+    def notifyAll(self) -> None: ...
+
+    def ordinal(self) -> int: ...
+
+    def toString(self) -> unicode: ...
+
+    @overload
+    @staticmethod
+    def valueOf(__a0: unicode) -> ghidra.program.model.symbol.SourceType: ...
+
+    @overload
+    @staticmethod
+    def valueOf(__a0: java.lang.Class, __a1: unicode) -> java.lang.Enum: ...
+
+    @staticmethod
+    def values() -> List[ghidra.program.model.symbol.SourceType]: ...
+
+    @overload
+    def wait(self) -> None: ...
+
+    @overload
+    def wait(self, __a0: long) -> None: ...
+
+    @overload
+    def wait(self, __a0: long, __a1: int) -> None: ...
+
+    @property
+    def displayString(self) -> unicode: ...

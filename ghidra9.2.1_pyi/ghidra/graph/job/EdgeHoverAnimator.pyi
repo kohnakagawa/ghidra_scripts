@@ -1,0 +1,56 @@
+import ghidra.graph.job
+import ghidra.util.task
+import java.lang
+
+
+class EdgeHoverAnimator(ghidra.graph.job.AbstractAnimator):
+
+
+
+
+    def __init__(self, primaryViewer: edu.uci.ics.jung.visualization.VisualizationServer, satelliteViewer: edu.uci.ics.jung.visualization.VisualizationServer, useAnimation: bool): ...
+
+
+
+    def equals(self, __a0: object) -> bool: ...
+
+    def getClass(self) -> java.lang.Class: ...
+
+    def hasFinished(self) -> bool: ...
+
+    def hashCode(self) -> int: ...
+
+    def isRunning(self) -> bool: ...
+
+    def notify(self) -> None: ...
+
+    def notifyAll(self) -> None: ...
+
+    def setBusyListener(self, listener: ghidra.util.task.BusyListener) -> None: ...
+
+    def setNextPaint(self, nextPaint: int) -> None: ...
+
+    def start(self) -> None: ...
+
+    def stop(self) -> None:
+        """
+        Stops this animator <b>and all scheduled animators!</b>
+        """
+        ...
+
+    def toString(self) -> unicode: ...
+
+    @overload
+    def wait(self) -> None: ...
+
+    @overload
+    def wait(self, __a0: long) -> None: ...
+
+    @overload
+    def wait(self, __a0: long, __a1: int) -> None: ...
+
+    @property
+    def nextPaint(self) -> None: ...  # No getter available.
+
+    @nextPaint.setter
+    def nextPaint(self, value: int) -> None: ...

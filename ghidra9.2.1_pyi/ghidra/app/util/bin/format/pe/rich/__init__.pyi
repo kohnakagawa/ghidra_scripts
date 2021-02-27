@@ -1,0 +1,12 @@
+from .CompId import CompId as CompId
+from .MSProductType import MSProductType as MSProductType
+from .MSRichProductBuildNumberDataType import MSRichProductBuildNumberDataType as MSRichProductBuildNumberDataType
+from .MSRichProductIDDataType import MSRichProductIDDataType as MSRichProductIDDataType
+from .MSRichProductInfoDataType import MSRichProductInfoDataType as MSRichProductInfoDataType
+from .PERichTableDataType import PERichTableDataType as PERichTableDataType
+from .RichHeaderRecord import RichHeaderRecord as RichHeaderRecord
+from .RichHeaderUtils import RichHeaderUtils as RichHeaderUtils
+from .RichObjectCountDataType import RichObjectCountDataType as RichObjectCountDataType
+from .RichProduct import RichProduct as RichProduct
+from .RichProductIdLoader import RichProductIdLoader as RichProductIdLoader
+from .RichTableRecordDataType import RichTableRecordDataType as RichTableRecordDataType

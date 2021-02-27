@@ -1,0 +1,99 @@
+import db
+import ghidra.framework.data
+import ghidra.framework.model
+import ghidra.framework.store
+import ghidra.util.task
+import java.lang
+import javax.swing
+
+
+class ProgramContentHandler(ghidra.framework.data.DBContentHandler):
+    """
+    ProgramContentHandler converts between Program instantiations
+     and FolderItem storage.  This class also produces the appropriate Icon for
+     Program files.
+    """
+
+    PROGRAM_CONTENT_TYPE: unicode = u'Program'
+    PROGRAM_ICON: javax.swing.ImageIcon
+
+
+
+    def __init__(self): ...
+
+
+
+    def createFile(self, fs: ghidra.framework.store.FileSystem, userfs: ghidra.framework.store.FileSystem, path: unicode, name: unicode, obj: ghidra.framework.model.DomainObject, monitor: ghidra.util.task.TaskMonitor) -> long: ...
+
+    def equals(self, __a0: object) -> bool: ...
+
+    def getChangeSet(self, item: ghidra.framework.store.FolderItem, fromVer: int, toVer: int) -> ghidra.framework.model.ChangeSet: ...
+
+    def getClass(self) -> java.lang.Class: ...
+
+    def getContentType(self) -> unicode: ...
+
+    def getContentTypeDisplayString(self) -> unicode: ...
+
+    def getDefaultToolName(self) -> unicode: ...
+
+    def getDomainObject(self, item: ghidra.framework.store.FolderItem, userfs: ghidra.framework.store.FileSystem, checkoutId: long, okToUpgrade: bool, recover: bool, consumer: object, monitor: ghidra.util.task.TaskMonitor) -> ghidra.framework.data.DomainObjectAdapter: ...
+
+    def getDomainObjectClass(self) -> java.lang.Class: ...
+
+    def getIcon(self) -> javax.swing.Icon: ...
+
+    def getImmutableObject(self, item: ghidra.framework.store.FolderItem, consumer: object, version: int, minChangeVersion: int, monitor: ghidra.util.task.TaskMonitor) -> ghidra.framework.data.DomainObjectAdapter: ...
+
+    def getMergeManager(self, resultsObj: ghidra.framework.model.DomainObject, sourceObj: ghidra.framework.model.DomainObject, originalObj: ghidra.framework.model.DomainObject, latestObj: ghidra.framework.model.DomainObject) -> ghidra.framework.data.DomainObjectMergeManager: ...
+
+    def getReadOnlyObject(self, item: ghidra.framework.store.FolderItem, version: int, okToUpgrade: bool, consumer: object, monitor: ghidra.util.task.TaskMonitor) -> ghidra.framework.data.DomainObjectAdapter: ...
+
+    def hashCode(self) -> int: ...
+
+    def isPrivateContentType(self) -> bool: ...
+
+    def notify(self) -> None: ...
+
+    def notifyAll(self) -> None: ...
+
+    def removeUserDataFile(self, associatedItem: ghidra.framework.store.FolderItem, userfs: ghidra.framework.store.FileSystem) -> None:
+        """
+        @see ghidra.framework.data.ContentHandler#removeUserDataFile(ghidra.framework.store.FolderItem, ghidra.framework.store.FileSystem)
+        """
+        ...
+
+    def saveUserDataFile(self, domainObj: ghidra.framework.model.DomainObject, userDbh: db.DBHandle, userfs: ghidra.framework.store.FileSystem, monitor: ghidra.util.task.TaskMonitor) -> None:
+        """
+        @see ghidra.framework.data.ContentHandler#saveUserDataFile(ghidra.framework.model.DomainObject, db.DBHandle, ghidra.framework.store.FileSystem, ghidra.util.task.TaskMonitor)
+        """
+        ...
+
+    def toString(self) -> unicode: ...
+
+    @overload
+    def wait(self) -> None: ...
+
+    @overload
+    def wait(self, __a0: long) -> None: ...
+
+    @overload
+    def wait(self, __a0: long, __a1: int) -> None: ...
+
+    @property
+    def contentType(self) -> unicode: ...
+
+    @property
+    def contentTypeDisplayString(self) -> unicode: ...
+
+    @property
+    def defaultToolName(self) -> unicode: ...
+
+    @property
+    def domainObjectClass(self) -> java.lang.Class: ...
+
+    @property
+    def icon(self) -> javax.swing.Icon: ...
+
+    @property
+    def privateContentType(self) -> bool: ...

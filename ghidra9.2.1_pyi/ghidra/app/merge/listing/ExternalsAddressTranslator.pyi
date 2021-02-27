@@ -1,0 +1,66 @@
+import ghidra.program.model.address
+import ghidra.program.model.listing
+import ghidra.program.util
+import java.lang
+
+
+class ExternalsAddressTranslator(object, ghidra.program.util.AddressTranslator):
+    """
+    ExternalsAddressTranslator is a translator that can be used for merging external functions and
+     labels.
+     Important: Before using this with ProgramMerge you must add all the address pairs that
+     will translate the external address space address from the source program to the address
+     in the destination program.
+    """
+
+
+
+
+
+    def __init__(self, destinationProgram: ghidra.program.model.listing.Program, sourceProgram: ghidra.program.model.listing.Program): ...
+
+
+
+    def equals(self, __a0: object) -> bool: ...
+
+    def getAddress(self, sourceAddress: ghidra.program.model.address.Address) -> ghidra.program.model.address.Address: ...
+
+    def getAddressRange(self, sourceAddressRange: ghidra.program.model.address.AddressRange) -> ghidra.program.model.address.AddressRange: ...
+
+    def getAddressSet(self, sourceAddressSet: ghidra.program.model.address.AddressSetView) -> ghidra.program.model.address.AddressSet: ...
+
+    def getClass(self) -> java.lang.Class: ...
+
+    def getDestinationProgram(self) -> ghidra.program.model.listing.Program: ...
+
+    def getSourceProgram(self) -> ghidra.program.model.listing.Program: ...
+
+    def hashCode(self) -> int: ...
+
+    def isOneForOneTranslator(self) -> bool: ...
+
+    def notify(self) -> None: ...
+
+    def notifyAll(self) -> None: ...
+
+    def setPair(self, destinationAddress: ghidra.program.model.address.Address, sourceAddress: ghidra.program.model.address.Address) -> None: ...
+
+    def toString(self) -> unicode: ...
+
+    @overload
+    def wait(self) -> None: ...
+
+    @overload
+    def wait(self, __a0: long) -> None: ...
+
+    @overload
+    def wait(self, __a0: long, __a1: int) -> None: ...
+
+    @property
+    def destinationProgram(self) -> ghidra.program.model.listing.Program: ...
+
+    @property
+    def oneForOneTranslator(self) -> bool: ...
+
+    @property
+    def sourceProgram(self) -> ghidra.program.model.listing.Program: ...

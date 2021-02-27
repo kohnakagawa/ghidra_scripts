@@ -1,0 +1,46 @@
+import db
+import ghidra.feature.vt.api.db
+import ghidra.feature.vt.api.main
+import java.lang
+
+
+class VTMatchTableDBAdapterV0(ghidra.feature.vt.api.db.VTMatchTableDBAdapter):
+
+
+
+
+    @overload
+    def __init__(self, __a0: db.DBHandle, __a1: long): ...
+
+    @overload
+    def __init__(self, __a0: db.DBHandle, __a1: long, __a2: db.OpenMode, __a3: ghidra.util.task.TaskMonitor): ...
+
+
+
+    def equals(self, __a0: object) -> bool: ...
+
+    def getClass(self) -> java.lang.Class: ...
+
+    def getRecords(self) -> db.RecordIterator: ...
+
+    def hashCode(self) -> int: ...
+
+    def insertMatchRecord(self, __a0: ghidra.feature.vt.api.main.VTMatchInfo, __a1: ghidra.feature.vt.api.db.VTMatchSetDB, __a2: ghidra.feature.vt.api.db.VTAssociationDB, __a3: ghidra.feature.vt.api.db.VTMatchTagDB) -> db.Record: ...
+
+    def notify(self) -> None: ...
+
+    def notifyAll(self) -> None: ...
+
+    def toString(self) -> unicode: ...
+
+    @overload
+    def wait(self) -> None: ...
+
+    @overload
+    def wait(self, __a0: long) -> None: ...
+
+    @overload
+    def wait(self, __a0: long, __a1: int) -> None: ...
+
+    @property
+    def records(self) -> db.RecordIterator: ...

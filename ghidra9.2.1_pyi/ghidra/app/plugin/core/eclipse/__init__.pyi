@@ -1,0 +1,3 @@
+from .EclipseConnection import EclipseConnection as EclipseConnection
+from .EclipseIntegrationOptionsPlugin import EclipseIntegrationOptionsPlugin as EclipseIntegrationOptionsPlugin
+from .EclipseIntegrationPlugin import EclipseIntegrationPlugin as EclipseIntegrationPlugin

@@ -1,4 +1,6 @@
 # Search function call pattern
+# TODO: More sophisticated search can be done
+# c.f. https://github.com/NationalSecurityAgency/ghidra/blob/master/Ghidra/Features/Decompiler/ghidra_scripts/ShowConstantUse.java
 # @author Ko Nakagawa
 # @category CodeAnalysis
 # @keybinding
@@ -39,10 +41,11 @@ def is_target_ref(ref):  # type: (Reference) -> bool
 def parse_args(args):  # type: (str) -> List[Union[str, int]]
     args_parsed = list()
     for i, arg in enumerate(args.split(",")):
+        arg = arg.strip()
         if arg.isdigit():
             args_parsed.append(int(arg))
         else:
-            args_parsed.append(arg.strip())
+            args_parsed.append(arg)
     return args_parsed
 
 
@@ -93,6 +96,7 @@ def check_function_argments(
             print("Expected " + str(parsed_arg))
             matched_result.append(input_var_node.getOffset() == parsed_arg)
 
+    print("matched result is ", matched_result)
     if matched_result and all(matched_result):
         print("Specified function call pattern is found!")
         return call_site
@@ -197,7 +201,7 @@ def split_function_name_and_argment(
 ):  # type: (str) -> Optional[Tuple[str, str]]
     # NOTE: assuming that parenthesis are not included in function parameters
     # For example, func(a, hoge(b, c)) is not supported now.
-    # This feature will be supported future.
+    # This feature will be supported in the future.
     matched_obj = re.match(r"(.*)\((.*)\)", func_call_pattern)
     if matched_obj is None or len(matched_obj.groups()) != 2:
         sys.stderr.write(

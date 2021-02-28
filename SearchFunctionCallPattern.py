@@ -176,9 +176,17 @@ def search_function_call_pattern(
 
         call_site = ref.getFromAddress()
         decompile_results = decompile_at(decompile_ifc, call_site)
+        if decompile_results is None:
+            sys.stderr.write(
+                "Cannot get decompile result because function is not defined at "
+                + str(call_site)
+                + "\n"
+            )
+            continue
+
         high_function = decompile_results.getHighFunction()
         if high_function is None:
-            sys.stderr.write("Cannot get high function")
+            sys.stderr.write("Cannot get high function\n")
             continue
 
         pcode_ops = high_function.getPcodeOps(call_site)

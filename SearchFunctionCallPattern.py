@@ -8,12 +8,18 @@
 
 import re
 import sys
-from typing import Any, List, Optional, Tuple, Union
+from typing import Any, List, Optional, Tuple, Union, cast
 
 from ghidra.app.decompiler import (
     DecompileOptions,
     DecompileResults,
     DecompInterface,
+)
+from ghidra.app.tablechooser import (
+    AddressableRowObject,
+    ColumnDisplay,
+    StringColumnDisplay,
+    TableChooserDialog,
 )
 from ghidra.program.model.address import Address
 from ghidra.program.model.pcode import PcodeOpAST
@@ -30,13 +36,13 @@ def is_target_ref(ref):  # type: (Reference) -> bool
 
 
 # NOTE: float is not supported
-def parse_args(args):  # type: (str) -> List[Tuple[int, Union[str, int]]]
+def parse_args(args):  # type: (str) -> List[Union[str, int]]
     args_parsed = list()
     for i, arg in enumerate(args.split(",")):
         if arg.isdigit():
-            args_parsed.append((i, int(arg)))
-        elif arg != "_":
-            args_parsed.append((i, arg))
+            args_parsed.append(int(arg))
+        else:
+            args_parsed.append(arg.strip())
     return args_parsed
 
 
@@ -60,9 +66,79 @@ def decompile_at(
 
 
 def check_function_argments(
-    pcode_op_ast, parsed_args
-):  # type: (PcodeOpAST, List[Tuple[int, Union[str, int]]]) -> None
-    pcode_op_ast.getNumInputs()
+    pcode_op_ast, parsed_args, call_site, target_func_sig
+):  # type: (PcodeOpAST, List[Union[str, int]], Address, str) -> Optional[Address]
+    print("Current call site is " + str(call_site))
+    if pcode_op_ast.getNumInputs() != len(parsed_args) + 1:
+        sys.stderr.write(
+            "Number of arguments does not match at " + str(call_site) + "\n"
+        )
+        sys.stderr.write(
+            "Got %d (expected %d)\n"
+            % (len(parsed_args) + 1, pcode_op_ast.getNumInputs())
+        )
+        sys.stderr.write("Signature of target function is " + target_func_sig + "\n")
+        return None
+
+    matched_result = list()
+    for i, parsed_arg in enumerate(parsed_args):
+        input_var_node = pcode_op_ast.getInput(i + 1)
+        if parsed_arg == "_":
+            continue
+
+        # TODO: to be implemented (for other varnode types)
+        if input_var_node.isConstant():
+            print("Check the function's argument value")
+            print("Got " + str(input_var_node.getOffset()))
+            print("Expected " + str(parsed_arg))
+            matched_result.append(input_var_node.getOffset() == parsed_arg)
+
+    if matched_result and all(matched_result):
+        print("Specified function call pattern is found!")
+        return call_site
+
+    return None
+
+
+class FoundFunctionCallSiteRowObject(AddressableRowObject):
+    def __init__(
+        self, function_name, location, explanation
+    ):  # type: (FoundFunctionCallSiteRowObject, str, Address, str) -> None
+        super(FoundFunctionCallSiteRowObject, self).__init__()
+        self.function_name = function_name
+        self.location = location
+        self.explanation = explanation
+
+    def getAddress(self):  # type: (FoundFunctionCallSiteRowObject) -> Address
+        return self.location
+
+    def toString(self):  # type: (FoundFunctionCallSiteRowObject) -> unicode
+        return self.explanation
+
+
+class FunctionNameColumn(StringColumnDisplay):
+    def getColumnName(self):  # type: (FunctionNameColumn) -> unicode
+        return u"Function Name"
+
+    def getColumnValue(
+        self, row_object
+    ):  # type: (FunctionNameColumn, FoundFunctionCallSiteRowObject) -> unicode
+        return row_object.function_name
+
+
+class ExplanationColumn(StringColumnDisplay):
+    def getColumnName(self):  # type: (ExplanationColumn) -> unicode
+        return u"Explanation"
+
+    def getColumnValue(
+        self, row_object
+    ):  # type: (ExplanationColumn, FoundFunctionCallSiteRowObject) -> unicode
+        return row_object.explanation
+
+
+def configure_table_columns(table_dialog):  # type: (TableChooserDialog) -> None
+    table_dialog.addCustomColumn(FunctionNameColumn())
+    table_dialog.addCustomColumn(ExplanationColumn())
 
 
 def search_function_call_pattern(
@@ -77,22 +153,43 @@ def search_function_call_pattern(
             sys.stderr.write("Multiple " + func_name + " are found\n")
             return None
 
+    table_dialog = createTableChooserDialog(
+        "Found function call patterns in " + currentProgram.getName(),
+        cast(TableChooserDialog, None),
+    )
+    configure_table_columns(table_dialog)
+    table_dialog.show()
+
     decompile_ifc = get_decompile_interface()
     parsed_args = parse_args(args)
 
+    target_function_sig = str(functions_found[0].getPrototypeString(True, True))
     target_function_addr = functions_found[0].getEntryPoint()
     refs_to_target = getReferencesTo(target_function_addr)
     for ref in refs_to_target:  # type: Reference
         if not is_target_ref(ref):
             continue
 
-        decompile_results = decompile_at(decompile_ifc, ref.getFromAddress())
+        call_site = ref.getFromAddress()
+        decompile_results = decompile_at(decompile_ifc, call_site)
         high_function = decompile_results.getHighFunction()
         if high_function is None:
             sys.stderr.write("Cannot get high function")
             continue
 
-        high_function.getPcodeOps(ref.getFromAddress())
+        pcode_ops = high_function.getPcodeOps(call_site)
+        found_call_site = check_function_argments(
+            next(pcode_ops), parsed_args, call_site, target_function_sig
+        )
+        if found_call_site:
+            function_containing_call_site = getFunctionContaining(call_site)
+            if function_containing_call_site:
+                call_site_name = function_containing_call_site.getName()
+            else:
+                call_site_name = ""
+            table_dialog.add(
+                FoundFunctionCallSiteRowObject(call_site_name, found_call_site, "Found")
+            )
 
 
 def split_function_name_and_argment(

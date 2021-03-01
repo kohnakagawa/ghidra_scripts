@@ -37,6 +37,14 @@ def is_target_ref(ref):  # type: (Reference) -> bool
     return ref.getReferenceType() == RefType.UNCONDITIONAL_CALL
 
 
+def ishexdigit(in_str):  # type: (str) -> bool
+    try:
+        int(in_str, 16)
+    except ValueError as _:
+        return False
+    return True
+
+
 # NOTE: float is not supported
 def parse_args(args):  # type: (str) -> List[Union[str, int]]
     args_parsed = list()
@@ -44,6 +52,8 @@ def parse_args(args):  # type: (str) -> List[Union[str, int]]
         arg = arg.strip()
         if arg.isdigit():
             args_parsed.append(int(arg))
+        elif ishexdigit(arg):
+            args_parsed.append(int(arg, 16))
         else:
             args_parsed.append(arg)
     return args_parsed

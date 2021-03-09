@@ -12,20 +12,15 @@ import re
 import sys
 from typing import Any, List, Optional, Tuple, Union, cast
 
-from ghidra.app.decompiler import (
-    DecompileOptions,
-    DecompileResults,
-    DecompInterface,
-)
 from ghidra.app.tablechooser import (
     AddressableRowObject,
-    ColumnDisplay,
     StringColumnDisplay,
     TableChooserDialog,
 )
 from ghidra.program.model.address import Address
 from ghidra.program.model.pcode import PcodeOpAST
 from ghidra.program.model.symbol import Reference, RefType
+from utils.decompiler import decompile_at, get_decompile_interface
 
 try:
     from ghidra_builtins import *
@@ -57,25 +52,6 @@ def parse_args(args):  # type: (str) -> List[Union[str, int]]
         else:
             args_parsed.append(arg)
     return args_parsed
-
-
-def get_decompile_interface():  # type: () -> DecompInterface
-    interface = DecompInterface()
-    options = DecompileOptions()
-    interface.setOptions(options)
-    interface.openProgram(currentProgram)
-    interface.setSimplificationStyle("decompile")
-    return interface
-
-
-def decompile_at(
-    interface, address
-):  # type: (DecompInterface, Address) -> Optional[DecompileResults]
-    function = getFunctionContaining(address)
-    if function is None:
-        sys.stderr.write("Function is not defined at " + str(address) + "\n")
-        return None
-    return interface.decompileFunction(function, 30, monitor)
 
 
 def check_function_argments(

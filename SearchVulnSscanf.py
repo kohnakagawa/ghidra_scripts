@@ -52,7 +52,7 @@ def process_sscanf_call_pattern(
     for pcode_using in pcodeop_ast.output.getDescendants():
         # NOTE: In this sample, we only target the INT_EQUAL P-Code. However, in real world, this is not enough.
         # For example, P-Codes such as INT_NOTEQUAL, INT_LESS should be supported to find additional potential
-        # vulnerable function call patterns more.
+        # vulnerable function call patterns.
         if pcode_using.opcode != PcodeOp.INT_EQUAL:
             continue
         if pcode_using.inputs[0].getDef() == pcodeop_ast:

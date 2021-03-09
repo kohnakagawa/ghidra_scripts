@@ -34,6 +34,11 @@ By using this script, you can search such a call site by typing `RtlpImageDirect
 This script is for testing Ghidra SymbolicPropagator.
 Note that it only works for the analysis of `KernelBase.dll`
 
+### [SearchVulnSscanf.py](./SearchVulnSscanf.py)
+
+This scripts finds the potential vulnerable `sscanf` function call patterns via a P-Code analysis.
+Insipred by [this ZDI blog post](https://www.thezdi.com/blog/2019/7/16/mindshare-automated-bug-hunting-by-modeling-vulnerable-code).
+
 ## IDE setup
 
 ### Python scripting

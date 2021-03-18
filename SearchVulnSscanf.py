@@ -6,8 +6,6 @@
 # @menupath
 # @toolbar
 
-import sys
-
 from ghidra.app.tablechooser import (
     AddressableRowObject,
     StringColumnDisplay,
@@ -17,6 +15,7 @@ from ghidra.program.database.symbol import FunctionSymbol
 from ghidra.program.model.address import Address
 from ghidra.program.model.pcode import PcodeOp, PcodeOpAST
 from ghidra.program.model.symbol import Reference
+from utils.console import show_err
 from utils.decompiler import decompile_at, get_decompile_interface
 
 try:
@@ -24,10 +23,6 @@ try:
     from ghidra_builtins import *
 except Exception as e:
     pass
-
-
-def show_err(s):  # type: (Union[str, unicode]) -> None
-    sys.stderr.write(s + "\n")
 
 
 def process_sscanf_call_pattern(
